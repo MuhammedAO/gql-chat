@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "apollo-server-express": "^3.6.1",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
+  },
+  "name": "gqlchat",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev ./src/server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
