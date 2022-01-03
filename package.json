@@ -1,16 +1,18 @@
 {
   "dependencies": {
     "apollo-server-express": "^3.6.1",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^7.0.0-alpha.4",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.4"
   },
   "name": "gqlchat",
   "version": "1.0.0",
   "main": "server.ts",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev ./src/server"
+    "dev": "nodemon ./src/server"
   },
   "keywords": [],
   "author": "",
