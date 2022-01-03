@@ -5,21 +5,9 @@ const { gql } = require("apollo-server-express")
 
 module.exports = gql`
   type User {
-    _id: ID!
-    firstName: String
-    lastName: String
+    _id: ID
+    username: String
     email: String
-    emailVerified: Boolean
-    dexertoId: String
-    dob: String
-    productName: String
-    products: [UserProduct]
-    createdAt: String
-    updatedAt: String
-    verifiedGames: [VerifiedGamesData]
-    verifiedPlatforms: [PlatformData]
-    verifiedSocials: [SocialNetworkData]
-    accessToken: String
   }
   type UserCreateResponse {
     email: String!
@@ -27,11 +15,11 @@ module.exports = gql`
   }
   
   
-  }
+  
   type Query {
-    me: User
- 
+    getUsers: [User]
   }
+  
   type Mutation {
     userCreate(
       email: String!
