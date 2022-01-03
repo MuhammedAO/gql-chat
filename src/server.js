@@ -1,11 +1,11 @@
 const express =  require("express")
 const { ApolloServer } = require("apollo-server-express")
-const {sequelize} = require('./models/index.js')
+const {sequelize} = require('./models/')
 const resolvers = require('./resolvers')
 const typeDefs = require('./typeDefs')
 
 
-const port = process.env.PORT || 4018; // set by GAE on Cloud
+const port = process.env.PORT || 4007; // set by GAE on Cloud
 
 async function startApolloServer() {
   const app = express();
