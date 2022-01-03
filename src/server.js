@@ -1,6 +1,8 @@
-import express from "express";
-import { ApolloServer } from "apollo-server-express";
-
+const express =  require("express")
+const { ApolloServer } = require("apollo-server-express")
+const {sequelize} = require('./models/index.js')
+const resolvers = require('./resolvers')
+const typeDefs = require('./typeDefs')
 
 
 const port = process.env.PORT || 4018; // set by GAE on Cloud
@@ -11,8 +13,8 @@ async function startApolloServer() {
   app.use(express.urlencoded({ extended: true }));
 
   const server = new ApolloServer({
-    // typeDefs,
-    // resolvers,
+    typeDefs,
+    resolvers,
     context: ({ req: Request, res: Response }) => ({
       req: Request,
       res: Response,
@@ -30,13 +32,15 @@ async function startApolloServer() {
     path: "/",
   });
 
-  await new Promise<void>((resolve) =>
+  await new Promise((resolve) =>
     // eslint-disable-next-line
-    app.listen({ port }, (): void => resolve())
+    app.listen({ port }, () => resolve())
   );
   console.log(`
   🚀 GraphQLServer ready at http://localhost:${port}${server.graphqlPath}
   `);
+  await sequelize.authenticate()
+  console.log('Database Connected!')
   return { server, app };
 }
 
