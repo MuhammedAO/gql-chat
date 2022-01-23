@@ -4,6 +4,8 @@ const {sequelize} = require('./models/')
 const resolvers = require('./resolvers')
 const typeDefs = require('./typeDefs')
 
+const contextMiddleware = require('./util/contextMiddleware')
+
 
 const port = process.env.PORT || 4007; // set by GAE on Cloud
 
@@ -15,10 +17,7 @@ async function startApolloServer() {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: ({ req: Request, res: Response }) => ({
-      req: Request,
-      res: Response,
-    }),
+    context: contextMiddleware,
   });
   await server.start();
 
