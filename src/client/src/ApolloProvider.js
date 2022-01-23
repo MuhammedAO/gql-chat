@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -6,7 +6,7 @@ import {
 } from '@apollo/client'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4017',
+  uri: 'http://localhost:4007/',
   cache: new InMemoryCache(),
 })
 
