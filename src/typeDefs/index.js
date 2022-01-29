@@ -6,8 +6,10 @@ const { gql } = require("apollo-server-express")
 module.exports = gql`
   type User {
     username: String!
-    email: String!
+    email: String
     token:String
+    imageUrl: String!
+    latestMessage: Message
   }
 
   type Message {
